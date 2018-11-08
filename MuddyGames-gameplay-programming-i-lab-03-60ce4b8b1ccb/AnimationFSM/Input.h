@@ -15,7 +15,9 @@ public:
 		JUMP,
 		SWORD,
 		SHOVEL,
-		WALK
+		WALK,
+		CLIMB,
+		HAMMER
 	};
 
 	void setCurrent(Action);

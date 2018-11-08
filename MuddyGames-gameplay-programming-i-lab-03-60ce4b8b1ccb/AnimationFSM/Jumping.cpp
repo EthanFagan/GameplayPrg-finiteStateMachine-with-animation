@@ -4,6 +4,14 @@
 
 #include <string>
 
+void Jumping::handleInput()
+{
+}
+
+void Jumping::update()
+{
+}
+
 void Jumping::idle(PlayerFSM* a)
 {
 	std::cout << "Jumping -> Idle" << std::endl;

@@ -85,6 +85,22 @@ int main()
 				{
 					input.setCurrent(Input::Action::UP);
 				}	
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				{
+					input.setCurrent(Input::Action::SWORD);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+				{
+					input.setCurrent(Input::Action::HAMMER);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+				{
+					input.setCurrent(Input::Action::SHOVEL);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
+				{
+					input.setCurrent(Input::Action::CLIMB);
+				}
 				break;
 			default:
 

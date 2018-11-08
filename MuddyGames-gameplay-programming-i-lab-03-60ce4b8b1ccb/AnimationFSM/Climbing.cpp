@@ -4,6 +4,14 @@
 
 #include <string>
 
+void Climbing::handleInput()
+{
+}
+
+void Climbing::update()
+{
+}
+
 void Climbing::idle(PlayerFSM* a)
 {
 	std::cout << "Climbing -> Idle" << std::endl;

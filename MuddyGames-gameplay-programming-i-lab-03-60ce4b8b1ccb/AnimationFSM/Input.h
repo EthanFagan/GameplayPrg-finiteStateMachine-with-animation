@@ -11,7 +11,11 @@ public:
 		IDLE,
 		UP,
 		LEFT,
-		RIGHT
+		RIGHT,
+		JUMP,
+		SWORD,
+		SHOVEL,
+		WALK
 	};
 
 	void setCurrent(Action);

@@ -9,7 +9,10 @@ Player::Player()
 	m_state.setPrevious(new Idle());
 }
 
-Player::Player(const AnimatedSprite& s) : m_animated_sprite(s)
+Player::Player(const AnimatedSprite& s, const AnimatedSprite& s1, const AnimatedSprite& s2, const AnimatedSprite& s3) : m_animated_sprite(s),
+m_jump_animation(s1),
+m_climb_animation(s2),
+m_sword_animation(s3)
 {
 	m_state.setCurrent(new Idle());
 	m_state.setPrevious(new Idle());

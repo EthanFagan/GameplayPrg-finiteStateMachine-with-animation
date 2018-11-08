@@ -9,7 +9,7 @@ class PlayerFSM
 	// https://stackoverflow.com/questions/625799/resolve-build-errors-due-to-circular-dependency-amongst-classes
 
 private:
-	class State* m_current; // note order of m_current is 
+	/*class State* m_current;*/ // note order of m_current is 
 							// prior to setCurrent
 	class State* m_previous;
 public:
@@ -25,8 +25,8 @@ public:
 	void climbing();
 
 // Try uncommenting and comment the declaration above
-//private:
-//	class State* m_current;
+private:
+	class State* m_current;
 };
 
 #endif // !ANIMATION_H

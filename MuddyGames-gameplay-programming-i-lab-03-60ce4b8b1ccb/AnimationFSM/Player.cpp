@@ -23,9 +23,54 @@ Player::~Player() {}
 
 AnimatedSprite& Player::getAnimatedSprite()
 {
-	int frame = m_idle_sprite.getCurrentFrame();
-	m_idle_sprite.setTextureRect(m_idle_sprite.getFrame(frame));
-	return m_idle_sprite;
+	if (idling)
+	{
+		int frame = m_idle_sprite.getCurrentFrame();
+		m_idle_sprite.setTextureRect(m_idle_sprite.getFrame(frame));
+		return m_idle_sprite;
+	}
+	
+	else if (jumping)
+	{
+		int frame = m_jump_animation.getCurrentFrame();
+		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
+		return m_jump_animation;
+	}
+	
+	else if (walking)
+	{
+		int frame = m_jump_animation.getCurrentFrame();
+		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
+		return m_jump_animation;
+	}
+
+	else if (climbing)
+	{
+		int frame = m_climb_animation.getCurrentFrame();
+		m_climb_animation.setTextureRect(m_climb_animation.getFrame(frame));
+		return m_climb_animation;
+	}
+
+	else if (swording)
+	{
+		int frame = m_sword_animation.getCurrentFrame();
+		m_sword_animation.setTextureRect(m_sword_animation.getFrame(frame));
+		return m_sword_animation;
+	}
+
+	else if (hammering)
+	{
+		int frame = m_jump_animation.getCurrentFrame();
+		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
+		return m_jump_animation;
+	}
+
+	else if (shovelling)
+	{
+		int frame = m_jump_animation.getCurrentFrame();
+		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
+		return m_jump_animation;
+	}
 }
 
 void Player::handleInput(Input in)
@@ -36,30 +81,79 @@ void Player::handleInput(Input in)
 	{
 	case Input::Action::IDLE:
 		//std::cout << "Player Idling" << std::endl;
+		jumping = false;
+		swording = false;
+		shovelling = false;
+		walking = false;
+		climbing = false;
+		hammering = false;
+		idling = true;
 		m_state.idle();
 		break;
 	case Input::Action::UP:
 		//std::cout << "Player Up" << std::endl;
+		swording = false;
+		shovelling = false;
+		walking = false;
+		climbing = false;
+		idling = false;
+		hammering = false;
+		jumping = true;
 		m_state.jumping();
 		break;
 	case Input::Action::LEFT:
 		//std::cout << "Player Left" << std::endl;
+		swording = false;
+		shovelling = false;
+		climbing = false;
+		idling = false;
+		jumping = false;
+		hammering = false;
+		walking = true;
 		m_state.walking();
 		break;
 	case Input::Action::RIGHT:
 		//std::cout << "Player Right" << std::endl;
+		swording = false;
+		shovelling = false;
+		climbing = false;
+		idling = false;
+		jumping = false;
+		hammering = false;
+		walking = true;
 		m_state.walking();
 		break;
 	case Input::Action::CLIMB:
 		//std::cout << "Player Climbing" << std::endl;
+		swording = false;
+		shovelling = false;
+		idling = false;
+		jumping = false;
+		hammering = false;
+		walking = false;
+		climbing = true;
 		m_state.climbing();
 		break;
 	case Input::Action::SHOVEL:
 		//std::cout << "Player Shovelling" << std::endl;
+		swording = false;
+		idling = false;
+		jumping = false;
+		hammering = false;
+		walking = false;
+		climbing = false;
+		shovelling = true;
 		m_state.shovelling();
 		break;
 	case Input::Action::JUMP:
 		//std::cout << "Player Jumping" << std::endl;
+		swording = false;
+		idling = false;
+		hammering = false;
+		walking = false;
+		climbing = false;
+		shovelling = false;
+		jumping = true;
 		m_state.jumping();
 		break;
 	default:
@@ -71,5 +165,7 @@ void Player::update()
 {
 	//std::cout << "Handle Update" << std::endl;
 	m_idle_sprite.update();
-	//m_sword_animation.update();
+	m_jump_animation.update();
+	m_climb_animation.update();
+	m_sword_animation.update();
 }

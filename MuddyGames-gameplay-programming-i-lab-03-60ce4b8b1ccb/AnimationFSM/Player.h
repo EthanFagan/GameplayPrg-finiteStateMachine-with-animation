@@ -15,6 +15,14 @@ private:
 	AnimatedSprite m_sword_animation;
 	Player();
 
+	bool idling = true;
+	bool jumping = false;
+	bool climbing = false;
+	bool swording = false;
+	bool walking = false;
+	bool hammering = false;
+	bool shovelling = false;
+
 public:
 	Player(const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&);
 	~Player();

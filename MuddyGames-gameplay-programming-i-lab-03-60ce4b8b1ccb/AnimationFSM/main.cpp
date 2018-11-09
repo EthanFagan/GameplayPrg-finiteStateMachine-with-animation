@@ -102,10 +102,10 @@ int main()
 					input.setCurrent(Input::Action::CLIMB);
 				}
 				break;
-			default:
+			/*default:
 
 					input.setCurrent(Input::Action::IDLE);
-				break;
+				break;*/
 			}
 		}
 

@@ -22,6 +22,7 @@ public:
 	const IntRect& getFrame(int);
 	void addFrame(IntRect&);
 	const int getCurrentFrame();
+	void resetFrames();
 	void update();
 	
 private:

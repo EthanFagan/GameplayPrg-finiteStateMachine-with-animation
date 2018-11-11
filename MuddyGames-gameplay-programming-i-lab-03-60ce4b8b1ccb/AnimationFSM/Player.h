@@ -4,6 +4,7 @@
 #include <Input.h>
 #include <PlayerFSM.h>
 #include <AnimatedSprite.h>
+#include <Windows.h>
 
 class Player
 {

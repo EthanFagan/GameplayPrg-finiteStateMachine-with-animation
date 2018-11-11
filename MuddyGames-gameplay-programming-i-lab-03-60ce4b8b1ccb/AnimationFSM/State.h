@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <typeinfo>
+#include <Windows.h>
 
 #include <Input.h>
 #include <PlayerFSM.h>

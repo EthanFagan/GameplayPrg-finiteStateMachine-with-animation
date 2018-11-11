@@ -5,6 +5,7 @@
 #include <Input.h>
 #include <Debug.h>
 
+
 using namespace std;
 
 int main()
@@ -85,7 +86,7 @@ int main()
 	// Setup the Player
 	Player player(animated_sprite,jump_Animation, climb_Animation, sword_Animation, hammering_Animation, shovel_Animation, walking_Animation);
 	Input input;
-	
+
 	// Start the game loop
 	while (window.isOpen())
 	{

@@ -176,12 +176,76 @@ void Player::handleInput(Input in)
 void Player::update()
 {
 	//std::cout << "Handle Update" << std::endl;
-	m_idle_sprite.update();
-	m_jump_animation.update();
-	m_climb_animation.update();
-	m_sword_animation.update();
-	m_hammering_animation.update();
-	m_shovelling_animation.update();
-	m_walking_animation.update();
+	if (idling)
+	{
+		m_idle_sprite.update();
+		m_jump_animation.resetFrames();
+		m_climb_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (jumping)
+	{
+		m_jump_animation.update();
+		m_idle_sprite.resetFrames();
+		m_climb_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (climbing)
+	{
+		m_climb_animation.update();
+		m_idle_sprite.resetFrames();
+		m_jump_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (swording)
+	{
+		m_sword_animation.update();
+		m_idle_sprite.resetFrames();
+		m_climb_animation.resetFrames();
+		m_jump_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (hammering)
+	{
+		m_hammering_animation.update();
+		m_idle_sprite.resetFrames();
+		m_climb_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_jump_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (shovelling)
+	{
+		m_shovelling_animation.update();
+		m_idle_sprite.resetFrames();
+		m_climb_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_jump_animation.resetFrames();
+		m_walking_animation.resetFrames();
+	}
+	else if (walking)
+	{
+		m_walking_animation.update();
+		m_idle_sprite.resetFrames();
+		m_climb_animation.resetFrames();
+		m_sword_animation.resetFrames();
+		m_hammering_animation.resetFrames();
+		m_shovelling_animation.resetFrames();
+		m_jump_animation.resetFrames();
+	}
+	
 
 }

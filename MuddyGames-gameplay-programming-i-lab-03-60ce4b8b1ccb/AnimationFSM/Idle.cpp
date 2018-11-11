@@ -1,6 +1,10 @@
 #include <Idle.h>
 #include <Jumping.h>
 #include <Climbing.h>
+#include <Swordsmanship.h>
+#include <Hammering.h>
+#include <Shovelling.h>
+#include <Walking.h>
 
 #include <string>
 
@@ -25,7 +29,7 @@ void Idle::climbing(PlayerFSM* a)
 void Idle::sworsmanship(PlayerFSM * a)
 {
 	std::cout << "Idle -> Swordsmanship" << std::endl;
-	a->setCurrent(new Jumping());
+	a->setCurrent(new Swordsmanship());
 	a->setPrevious(new Idle());
 	delete this;
 }
@@ -33,7 +37,7 @@ void Idle::sworsmanship(PlayerFSM * a)
 void Idle::walking(PlayerFSM * a)
 {
 	std::cout << "Idle -> Walking" << std::endl;
-	a->setCurrent(new Jumping());
+	a->setCurrent(new Walking());
 	a->setPrevious(new Idle());
 	delete this;
 }
@@ -41,7 +45,7 @@ void Idle::walking(PlayerFSM * a)
 void Idle::shovelling(PlayerFSM * a)
 {
 	std::cout << "Idle -> Shovelling" << std::endl;
-	a->setCurrent(new Jumping());
+	a->setCurrent(new Shovelling());
 	a->setPrevious(new Idle());
 	delete this;
 }
@@ -49,7 +53,7 @@ void Idle::shovelling(PlayerFSM * a)
 void Idle::hammering(PlayerFSM * a)
 {
 	std::cout << "Idle -> Hammering" << std::endl;
-	a->setCurrent(new Jumping());
+	a->setCurrent(new Hammering());
 	a->setPrevious(new Idle());
 	delete this;
 }

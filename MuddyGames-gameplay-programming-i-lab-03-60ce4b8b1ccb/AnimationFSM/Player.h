@@ -13,6 +13,10 @@ private:
 	AnimatedSprite m_jump_animation;
 	AnimatedSprite m_climb_animation;
 	AnimatedSprite m_sword_animation;
+	AnimatedSprite m_hammering_animation;
+	AnimatedSprite m_shovelling_animation;
+	AnimatedSprite m_walking_animation;
+
 	Player();
 
 	bool idling = true;
@@ -24,7 +28,7 @@ private:
 	bool shovelling = false;
 
 public:
-	Player(const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&);
+	Player(const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&, const AnimatedSprite&);
 	~Player();
 	AnimatedSprite& getAnimatedSprite();
 	void handleInput(Input);

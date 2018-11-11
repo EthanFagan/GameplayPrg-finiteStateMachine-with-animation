@@ -10,10 +10,13 @@ Player::Player()
 	m_state.setPrevious(new Idle());
 }
 
-Player::Player(const AnimatedSprite& s, const AnimatedSprite& s1, const AnimatedSprite& s2, const AnimatedSprite& s3) : m_idle_sprite(s),
+Player::Player(const AnimatedSprite& s, const AnimatedSprite& s1, const AnimatedSprite& s2, const AnimatedSprite& s3, const AnimatedSprite& s4, const AnimatedSprite& s5, const AnimatedSprite& s6) : m_idle_sprite(s),
 m_jump_animation(s1),
 m_climb_animation(s2),
-m_sword_animation(s3)
+m_sword_animation(s3),
+m_hammering_animation(s4),
+m_shovelling_animation(s5),
+m_walking_animation(s6)
 {
 	m_state.setCurrent(new Idle());
 	m_state.setPrevious(new Idle());
@@ -39,9 +42,9 @@ AnimatedSprite& Player::getAnimatedSprite()
 	
 	else if (walking)
 	{
-		int frame = m_jump_animation.getCurrentFrame();
-		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
-		return m_jump_animation;
+		int frame = m_walking_animation.getCurrentFrame();
+		m_walking_animation.setTextureRect(m_walking_animation.getFrame(frame));
+		return m_walking_animation;
 	}
 
 	else if (climbing)
@@ -60,16 +63,16 @@ AnimatedSprite& Player::getAnimatedSprite()
 
 	else if (hammering)
 	{
-		int frame = m_jump_animation.getCurrentFrame();
-		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
-		return m_jump_animation;
+		int frame = m_hammering_animation.getCurrentFrame();
+		m_hammering_animation.setTextureRect(m_hammering_animation.getFrame(frame));
+		return m_hammering_animation;
 	}
 
 	else if (shovelling)
 	{
-		int frame = m_jump_animation.getCurrentFrame();
-		m_jump_animation.setTextureRect(m_jump_animation.getFrame(frame));
-		return m_jump_animation;
+		int frame = m_shovelling_animation.getCurrentFrame();
+		m_shovelling_animation.setTextureRect(m_shovelling_animation.getFrame(frame));
+		return m_shovelling_animation;
 	}
 }
 
@@ -156,6 +159,15 @@ void Player::handleInput(Input in)
 		jumping = true;
 		m_state.jumping();
 		break;
+	case Input::Action::SWORD:
+		idling = false;
+		hammering = false;
+		walking = false;
+		climbing = false;
+		shovelling = false;
+		jumping = false;
+		swording = true;
+		m_state.swordsmanship();
 	default:
 		break;
 	}
@@ -168,4 +180,8 @@ void Player::update()
 	m_jump_animation.update();
 	m_climb_animation.update();
 	m_sword_animation.update();
+	m_hammering_animation.update();
+	m_shovelling_animation.update();
+	m_walking_animation.update();
+
 }

@@ -55,8 +55,35 @@ int main()
 	sword_Animation.addFrame(sf::IntRect(173, 428, 84, 84));
 	sword_Animation.addFrame(sf::IntRect(173, 88, 84, 84));
 
+	//setup for hammer frames
+	AnimatedSprite hammering_Animation(texture);
+	hammering_Animation.addFrame(sf::IntRect(258, 88, 84, 84));
+	hammering_Animation.addFrame(sf::IntRect(258, 173, 84, 84));
+	hammering_Animation.addFrame(sf::IntRect(258, 258, 84, 84));
+	hammering_Animation.addFrame(sf::IntRect(258, 343, 84, 84));
+	hammering_Animation.addFrame(sf::IntRect(258, 428, 84, 84));
+	hammering_Animation.addFrame(sf::IntRect(258, 88, 84, 84));
+
+	//setup for shovelframes
+	AnimatedSprite shovel_Animation(texture);
+	shovel_Animation.addFrame(sf::IntRect(343, 88, 84, 84));
+	shovel_Animation.addFrame(sf::IntRect(343, 173, 84, 84));
+	shovel_Animation.addFrame(sf::IntRect(343, 258, 84, 84));
+	shovel_Animation.addFrame(sf::IntRect(343, 343, 84, 84));
+	shovel_Animation.addFrame(sf::IntRect(343, 428, 84, 84));
+	shovel_Animation.addFrame(sf::IntRect(343, 88, 84, 84));
+
+	//setup for walking frames
+	AnimatedSprite walking_Animation(texture);
+	walking_Animation.addFrame(sf::IntRect(428, 88, 84, 84));
+	walking_Animation.addFrame(sf::IntRect(428, 173, 84, 84));
+	walking_Animation.addFrame(sf::IntRect(428, 258, 84, 84));
+	walking_Animation.addFrame(sf::IntRect(428, 343, 84, 84));
+	walking_Animation.addFrame(sf::IntRect(428, 428, 84, 84));
+	walking_Animation.addFrame(sf::IntRect(428, 88, 84, 84));
+
 	// Setup the Player
-	Player player(animated_sprite,jump_Animation, climb_Animation, sword_Animation);
+	Player player(animated_sprite,jump_Animation, climb_Animation, sword_Animation, hammering_Animation, shovel_Animation, walking_Animation);
 	Input input;
 	
 	// Start the game loop

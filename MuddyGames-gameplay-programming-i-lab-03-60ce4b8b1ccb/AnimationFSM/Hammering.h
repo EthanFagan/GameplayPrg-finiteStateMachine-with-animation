@@ -12,7 +12,10 @@ public:
 	void update();
 	void idle(PlayerFSM* a);
 	void jumping(PlayerFSM* a);
-
+	void climbing(PlayerFSM* a);
+	void swordsmanship(PlayerFSM* a);
+	void walking(PlayerFSM* a);
+	void shovelling(PlayerFSM* a);
 };
 
 #endif // !HAMMERING.H

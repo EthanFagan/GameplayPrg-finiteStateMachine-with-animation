@@ -106,24 +106,40 @@ void Player::handleInput(Input in)
 		break;
 	case Input::Action::LEFT:
 		//std::cout << "Player Left" << std::endl;
-		swording = false;
-		shovelling = false;
-		climbing = false;
-		idling = false;
-		jumping = false;
-		hammering = false;
-		walking = true;
+		if (!climbing && !jumping)
+		{
+			swording = false;
+			shovelling = false;
+			climbing = false;
+			idling = false;
+			jumping = false;
+			hammering = false;
+			walking = true;
+		}
+		else
+		{
+			Beep(500, 500);
+		}
+	
 		m_state.walking();
 		break;
 	case Input::Action::RIGHT:
 		//std::cout << "Player Right" << std::endl;
-		swording = false;
-		shovelling = false;
-		climbing = false;
-		idling = false;
-		jumping = false;
-		hammering = false;
-		walking = true;
+		if (!climbing && !jumping)
+		{
+			swording = false;
+			shovelling = false;
+			climbing = false;
+			idling = false;
+			jumping = false;
+			hammering = false;
+			walking = true;
+		}
+		else
+		{
+			Beep(500, 500);
+		}
+		
 		m_state.walking();
 		break;
 	case Input::Action::CLIMB:
@@ -139,13 +155,21 @@ void Player::handleInput(Input in)
 		break;
 	case Input::Action::SHOVEL:
 		//std::cout << "Player Shovelling" << std::endl;
-		swording = false;
-		idling = false;
-		jumping = false;
-		hammering = false;
-		walking = false;
-		climbing = false;
-		shovelling = true;
+		if (!climbing && !jumping)
+		{
+			swording = false;
+			idling = false;
+			jumping = false;
+			hammering = false;
+			walking = false;
+			climbing = false;
+			shovelling = true;
+		}
+		else
+		{
+			Beep(500, 500);
+		}
+		
 		m_state.shovelling();
 		break;
 	case Input::Action::JUMP:
@@ -160,14 +184,40 @@ void Player::handleInput(Input in)
 		m_state.jumping();
 		break;
 	case Input::Action::SWORD:
-		idling = false;
-		hammering = false;
-		walking = false;
-		climbing = false;
-		shovelling = false;
-		jumping = false;
-		swording = true;
+		if (!climbing && !jumping)
+		{
+			idling = false;
+			hammering = false;
+			walking = false;
+			climbing = false;
+			shovelling = false;
+			jumping = false;
+			swording = true;
+		}
+		else
+		{
+			Beep(500, 500);
+		}
+
 		m_state.swordsmanship();
+		break;
+	case Input::Action::HAMMER:
+		if (!climbing && !jumping)
+		{
+			idling = false;
+			hammering = true;
+			walking = false;
+			climbing = false;
+			shovelling = false;
+			jumping = false;
+			swording = false;
+		}
+		else
+		{
+			Beep(500, 500);
+		}
+		m_state.hammering();
+		break;
 	default:
 		break;
 	}
@@ -246,6 +296,5 @@ void Player::update()
 		m_shovelling_animation.resetFrames();
 		m_jump_animation.resetFrames();
 	}
-	
 
 }
